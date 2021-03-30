@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as config from 'config';
 
@@ -13,3 +14,16 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: process.env.TYPEORM_SYNC || dbConfig.synchronize,
 };
+=======
+import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+
+export const typeOrmConfig: TypeOrmModuleOptions = {
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'postgres',
+    password: 'postgres',
+    autoLoadEntities: true,
+    synchronize: true,
+};
+>>>>>>> Stashed changes

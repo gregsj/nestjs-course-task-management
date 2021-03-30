@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { Controller, Post, Body, ValidationPipe } from '@nestjs/common';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { AuthService } from './auth.service';
@@ -17,4 +18,28 @@ export class AuthController {
   signIn(@Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto): Promise<{ accessToken: string }> {
     return this.authService.signIn(authCredentialsDto);
   }
+=======
+import { Body, Controller, Post, Req, UseGuards, ValidationPipe } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { AuthService } from './auth.service';
+import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+
+@Controller('auth')
+export class AuthController {
+    constructor(
+        private authService: AuthService,
+    ) {}
+
+    @Post('/signup')
+    signUp(@Body(ValidationPipe) authCreentialsDto: AuthCredentialsDto): Promise<void> {
+        return this.authService.signUp(authCreentialsDto);
+    }
+
+    @Post('/signin')
+    signIn(@Body(ValidationPipe) authCreentialsDto: AuthCredentialsDto): Promise<{ accessToken: string }> {
+        return this.authService.signIn(authCreentialsDto);
+    }
+
+
+>>>>>>> Stashed changes
 }

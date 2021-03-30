@@ -6,17 +6,27 @@ import { UserRepository } from './user.repository';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt.strategy';
+<<<<<<< Updated upstream
 import * as config from 'config';
 
 const jwtConfig = config.get('jwt');
+=======
+
+>>>>>>> Stashed changes
 
 @Module({
   imports: [
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
+<<<<<<< Updated upstream
       secret: process.env.JWT_SECRET || jwtConfig.secret,
       signOptions: {
         expiresIn: jwtConfig.expiresIn,
+=======
+      secret: 'topSecret51',
+      signOptions: {
+        expiresIn: 3600,
+>>>>>>> Stashed changes
       },
     }),
     TypeOrmModule.forFeature([UserRepository]),
